@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block data %}
+<p>We wil show list of employee from the table</p>
+<table class="table table-borderless">
+    <thead class="border-botom font-weight-bold">
+        <tr>
+            <td>Full Name</td>
+            <td>Mobile</td>
+            <td>Position</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in a %}
+        <tr>
+            <td>{{i.fullname}}</td>
+            <td>{{i.mobile}}</td>
+            <td>{{i.position}}</td>
+            <td>
+                <a href={% url "empupdate" i.id %} class="btn text-secondary px-0">
+                    editme
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
